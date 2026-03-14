@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HERVOICE</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1 id="title">HERVOICE</h1>
+
+<div class="controls">
+<button onclick="toggleTheme()">Dark/light</button>
+<button onclick="toggleLanguage()">EN/KINY</button>
+</div>
+
+</header>
+
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="dashboard">
+
+<div class="card" onclick="openLessons()">
+
+<h2 id="lessonTitle">Lessons</h2>
+
+<p id="lessonDesc">
+Learn about your body and sexual reproductive health.
+</p>
+
+</div>
+
+
+<div class="card" onclick="openVideos()">
+
+<h2 id="videoTitle">Videos</h2>
+
+<p id="videoDesc">
+Watch sign language and educational videos.
+</p>
+
+</div>
+
+
+<div class="card help" onclick="openHelp()">
+
+<h2 id="helpTitle">Find Help</h2>
+
+<p id="helpDesc">
+Talk to a youth friendly doctor through SMS or call.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- LESSON LIST -->
+
+<section id="lessonsSection" class="content">
+
+<button class="back" onclick="goHome()">⬅ Back</button>
+
+<h2>SRHR Lessons</h2>
+
+<div class="lesson" onclick="openLesson('Puberty')">
+Puberty
+</div>
+
+<div class="lesson" onclick="openLesson('Menstruation')">
+Menstrual Health
+</div>
+
+<div class="lesson" onclick="openLesson('Autonomy')">
+Body Autonomy
+</div>
+
+<div class="lesson" onclick="openLesson('Contraception')">
+Contraception
+</div>
+
+<div class="lesson" onclick="openLesson('STIs')">
+STIs & HIV
+</div>
+
+<div class="lesson" onclick="openLesson('SEX_EDUCATION')">
+SEX EDUCATION
+</div>
+
+<div class="lesson" onclick="openLesson('GBV')">
+Gender-Based Violence (GBV)
+</div>
+
+<div class="lesson" onclick="openLesson('rights')">
+Your Sexual & Reproductive Rights
+</div>
+
+</div>
+</section>
+
+
+
+<!-- LESSON CONTENT -->
+
+<section id="lessonDetail" class="content">
+
+<button class="back" onclick="showLessons()">⬅ Back</button>
+
+<div id="lessonContent"></div>
+
+</section>
+
+
+
+<!-- VIDEOS -->
+
+<section id="videosSection" class="content">
+
+<button class="back" onclick="goHome()">⬅ Back</button>
+
+<h2>Educational Videos</h2>
+
+
+<div class="video-card">
+
+<h3>Reproductive Health Basics</h3>
+
+<iframe
+src="https://www.youtube.com/embed/MZdDIMXmL7Y"
+allowfullscreen>
+</iframe>
+
+</div>
+
+
+<div class="video-card">
+
+<h3>Understanding Puberty</h3>
+
+<iframe
+src="https://www.youtube.com/embed/EeQkGC09ehI"
+allowfullscreen>
+</iframe>
+
+</div>
+
+
+<div class="video-card">
+
+<h3>Know Your Rights</h3>
+
+<iframe
+src="https://www.youtube.com/embed/i_SPaBuKwYc"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</section>
+
+<!-- FIND HELP -->
+
+<section id="helpSection" class="content">
+
+<button class="back" onclick="goHome()">⬅ Back</button>
+
+<h2>Youth Friendly Doctors</h2>
+
+<div id="doctorList"></div>
+
+</section>
+
+
+
+<footer>
+
+<p>HERVOICE © 2026</p>
+
+</footer>
+
+
+
+<script src="data/lessons.js"></script>
+<script src="data/doctors.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>
