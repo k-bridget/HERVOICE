@@ -97,6 +97,9 @@ document.getElementById("dashboard").style.display="none"
 document.getElementById("videosSection").style.display="block"
 
 }
+window.addEventListener("offline", () => {
+  alert("You are offline. Lessons and doctor information are still available, but videos may not work.");
+});
 
 
 
@@ -233,6 +236,18 @@ if(currentLesson){
 
 openLesson(currentLesson)
 
+}
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(() => {
+        console.log("Service Worker registered successfully");
+      })
+      .catch((error) => {
+        console.log("Service Worker registration failed:", error);
+      });
+  });
 }
 
 }
