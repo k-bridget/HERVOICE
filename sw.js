@@ -1,4 +1,4 @@
-const CACHE_NAME = "hervoice-v1";
+const CACHE_NAME = "hervoice-v2";
 
 const FILES_TO_CACHE = [
   "./",
@@ -7,6 +7,7 @@ const FILES_TO_CACHE = [
   "./script.js",
   "./data/lessons.js",
   "./data/doctors.js",
+  "./data/videos.js",
   "./manifest.json"
 ];
 
@@ -33,9 +34,23 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+  // Bypass caching for API calls to ensure fresh data
+  if (event.request.url.includes('/api/')) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
+  // Network First Strategy: Try network, fall back to cache if offline
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
+    fetch(event.request)
+      .then((networkResponse) => {
+        return caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        });
+      })
+      .catch(() => {
+        return caches.match(event.request);
+      })
   );
 });

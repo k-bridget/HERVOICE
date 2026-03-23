@@ -1,202 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>HERVOICE</title>
-
-<link rel="stylesheet" href="style.css">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#6c63ff">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HERVOICE | SRHR For You</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#7c3aed">
+    <meta name="description" content="Offline education and communication platform on sexual reproductive health for adolescents with disabilities in Rwanda.">
+    
+    <!-- External Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
 
 </head>
-
 <body>
 
-<header>
-
-<h1 id="title">HERVOICE</h1>
-
-<div class="controls">
-<button onclick="toggleTheme()">Dark/light</button>
-<button onclick="toggleLanguage()">EN/KINY</button>
-</div>
-
-</header>
-
-
-<!-- DASHBOARD -->
-
-<section id="dashboard" class="dashboard">
-
-<div class="card" onclick="openLessons()">
-
-<h2 id="lessonTitle">Lessons</h2>
-
-<p id="lessonDesc">
-Learn about your body and sexual reproductive health.
-</p>
-
-</div>
-
-
-<div class="card" onclick="openVideos()">
-
-<h2 id="videoTitle">Videos</h2>
-
-<p id="videoDesc">
-Watch sign language and educational videos.
-</p>
-
-</div>
-
-
-<div class="card help" onclick="openHelp()">
-
-<h2 id="helpTitle">Find Help</h2>
-
-<p id="helpDesc">
-Talk to a youth friendly doctor through SMS or call.
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- LESSON LIST -->
-
-<section id="lessonsSection" class="content">
-
-<button class="back" onclick="goHome()">⬅ Back</button>
-
-<h2>SRHR Lessons</h2>
-
-<div class="lesson" onclick="openLesson('Puberty')">
-Puberty
-</div>
-
-<div class="lesson" onclick="openLesson('Menstruation')">
-Menstrual Health
-</div>
-
-<div class="lesson" onclick="openLesson('Autonomy')">
-Body Autonomy
-</div>
-
-<div class="lesson" onclick="openLesson('Contraception')">
-Contraception
-</div>
-
-<div class="lesson" onclick="openLesson('STIs')">
-STIs & HIV
-</div>
-
-<div class="lesson" onclick="openLesson('SEX_EDUCATION')">
-SEX EDUCATION
-</div>
-
-<div class="lesson" onclick="openLesson('GBV')">
-Gender-Based Violence (GBV)
-</div>
-
-<div class="lesson" onclick="openLesson('rights')">
-Your Sexual & Reproductive Rights
-</div>
-
-</div>
-</section>
-
-
-
-<!-- LESSON CONTENT -->
-
-<section id="lessonDetail" class="content">
-
-<button class="back" onclick="showLessons()">⬅ Back</button>
-
-<div id="lessonContent"></div>
-
-</section>
-
-
-
-<!-- VIDEOS -->
-
-<section id="videosSection" class="content">
-
-<button class="back" onclick="goHome()">⬅ Back</button>
-
-<h2>Educational Videos</h2>
-
-
-<div class="video-card">
-
-<h3>Reproductive Health Basics</h3>
-
-<iframe
-src="https://www.youtube.com/embed/MZdDIMXmL7Y"
-allowfullscreen>
-</iframe>
-
-</div>
-
-
-<div class="video-card">
-
-<h3>Understanding Puberty</h3>
-
-<iframe
-src="https://www.youtube.com/embed/EeQkGC09ehI"
-allowfullscreen>
-</iframe>
-
-</div>
-
-
-<div class="video-card">
-
-<h3>Know Your Rights</h3>
-
-<iframe
-src="https://www.youtube.com/embed/i_SPaBuKwYc"
-allowfullscreen>
-</iframe>
-
-</div>
-
-</section>
-
-<!-- FIND HELP -->
-
-<section id="helpSection" class="content">
-
-<button class="back" onclick="goHome()">⬅ Back</button>
-
-<h2>Youth Friendly Doctors</h2>
-
-<div id="doctorList"></div>
-
-</section>
-
-
-
-<footer>
-
-<p>HERVOICE © 2026</p>
-
-</footer>
-
-
-
-<script src="data/lessons.js"></script>
-<script src="data/doctors.js"></script>
-<script src="script.js"></script>
-
+    <header>
+        <h1 id="title">HERVOICE</h1>
+        <div class="controls">
+            <button onclick="toggleTheme()" aria-label="Toggle Dark Mode">Light/Dark Theme</button>
+            <button onclick="toggleLanguage()" aria-label="Toggle Language">EN/RW</button>
+        </div>
+    </header>
+
+    <!--Dashboard -->
+    <div id="dashboard" class="dashboard">
+        <div class="card" onclick="openLessons()" role="button" tabindex="0">
+            <h2 id="lessonTitle">Lessons</h2>
+            <p id="lessonDesc">Learn about your body and sexual reproductive health.</p>
+        </div>
+        
+        <div class="card" onclick="openVideos()" role="button" tabindex="0">
+            <h2 id="videoTitle">Videos</h2>
+            <p id="videoDesc">Watch sign language and educational videos.</p>
+        </div>
+        
+        <div class="card help" onclick="openHelp()" role="button" tabindex="0">
+            <h2 id="helpTitle">Find Help</h2>
+            <p id="helpDesc">Talk to a youth friendly doctor through SMS or call.</p>
+        </div>
+
+        <!-- Admin Dashboard Card -->
+        <div class="card" onclick="openAdmin()" role="button" tabindex="0" style="border-left: 4px solid #fca5a5;">
+            <h2 id="adminTitle">Admin</h2>
+            <p id="adminDesc">Manage the HERVOICE content and doctors.</p>
+        </div>
+    </div>
+
+    <!-- Lessons Section -->
+    <div id="lessonsSection" class="content">
+        <button class="back" onclick="goHome()"> Back</button>
+        <h2>Lessons / Amasomo</h2>
+        <div id="lessonList"></div>
+    </div>
+
+    <div id="lessonDetail" class="content">
+        <button class="back" onclick="showLessons()">Back to Lessons</button>
+
+
+        <!-- Text-to-Speech Controls -->
+        <div class="controls" style="margin-bottom: 25px;">
+            <button onclick="readText()" id="btnRead" style="background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 500;">🔊 Read</button>
+            <button onclick="stopText()" id="btnStop" style="background: var(--help-color); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 500; margin-left: 10px;">⏹️ Stop</button>
+        </div>
+
+        <div id="lessonContent"></div>
+    </div>
+
+    <!-- Videos Section -->
+    <div id="videosSection" class="content">
+        <button class="back" onclick="goHome()">⬅ Back</button>
+        <h2>🎥 Videos / Amashusho</h2>
+        <div id="videoList"></div> 
+    </div>
+
+    <!-- Find Help Section -->
+    <div id="helpSection" class="content">
+        <button class="back" onclick="goHome()">⬅ Back</button>
+        <h2>🩺 Find Help / Shaka Ubufasha</h2>
+        <div id="doctorList"></div> <!-- Doctors injected dynamically from script.js -->
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminSection" class="content admin-panel" style="display:none; padding: 0;">
+        <div style="display: flex; min-height: 70vh;">
+            <!-- Admin Sidebar -->
+            <div class="sidebar">
+                <ul class="nav-links">
+                    <li class="active-tab" onclick="showAdminTab('overview')">Overview</li>
+                    <li onclick="showAdminTab('content')"> Manage Content</li>
+                    <li onclick="showAdminTab('doctors')"> Manage Doctors</li>
+                    <li onclick="showAdminTab('users')">Users & Alerts</li>
+                    <li onclick="goHome()" style="color: #fca5a5;"> Exit Admin</li>
+                </ul>
+            </div>
+            
+            <!-- Admin TABS -->
+            <div style="flex: 1; padding: 2rem;">
+                
+                <!-- Overview Tab -->
+                <div id="overviewTab" class="admin-tab">
+                    <div class="admin-header">
+                        <h2>Admin Dashboard</h2>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card glass">
+                            <h3>Total Lessons</h3>
+                            <p id="totalLessons">0</p>
+                        </div>
+                        <div class="stat-card glass">
+                            <h3>Total Videos</h3>
+                            <p id="totalVideos">0</p>
+                        </div>
+                        <div class="stat-card glass">
+                            <h3>Partner Doctors</h3>
+                            <p id="totalDoctors">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manage Content Tab -->
+                <div id="contentTab" class="admin-tab" style="display:none;">
+                    <h2>Add Lesson</h2>
+                    <div class="glass" style="max-width: 600px;">
+                        <div class="input-group">
+                            <label>Lesson Title</label>
+                            <input type="text" id="lessonName" placeholder="Enter lesson title...">
+                        </div>
+                        <div class="input-group">
+                            <label>Content</label>
+                            <textarea id="lessonText" rows="6" placeholder="Write lesson content here..."></textarea>
+                        </div>
+                        <button class="btn-primary" onclick="addLesson()">Add Lesson</button>
+                    </div>
+                </div>
+
+                <!-- Manage Doctors Tab -->
+                <div id="doctorsTab" class="admin-tab" style="display:none;">
+                    <h2>Add Doctor</h2>
+                    <div class="glass" style="max-width: 600px;">
+                        <div class="input-group">
+                            <label>Doctor Name</label>
+                            <input type="text" id="doctorName" placeholder="e.g. Dr. Uwimana">
+                        </div>
+                        <div class="input-group">
+                            <label>Contact Number</label>
+                            <input type="text" id="doctorContact" placeholder="e.g. +250000000000">
+                        </div>
+                        <button class="btn-primary" onclick="addDoctor()">Add Doctor</button>
+                    </div>
+                </div>
+
+                <!-- Users & Alerts Tab -->
+                <div id="usersTab" class="admin-tab" style="display:none;">
+                    <h2>Send Notification</h2>
+                    <div class="glass" style="max-width: 600px;">
+                        <div class="input-group">
+                            <label>Message</label>
+                            <textarea id="notificationText" rows="4" placeholder="Send a broadcast notification to all users..."></textarea>
+                        </div>
+                        <button class="btn-primary" onclick="sendNotification()">Send All</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+    
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark');
+      }
+    </script>
+
+    <script src="data/lessons.js"></script>
+    <script src="data/doctors.js"></script>
+    <script src="data/videos.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
