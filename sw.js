@@ -1,4 +1,4 @@
-const CACHE_NAME = "hervoice-v2";
+const CACHE_NAME = "hervoice-v3";
 
 const FILES_TO_CACHE = [
   "./",
@@ -8,7 +8,9 @@ const FILES_TO_CACHE = [
   "./data/lessons.js",
   "./data/doctors.js",
   "./data/videos.js",
-  "./manifest.json"
+  "./manifest.json",
+  "./images/icon-192.png",
+  "./images/icon-512.png"
 ];
 
 self.addEventListener("install", (event) => {

@@ -271,6 +271,12 @@ function addDoctor() {
     const contact = document.getElementById("doctorContact").value;
     if (!name || !contact) return alert("Fill all fields");
     doctors.push({ name: name, hospital: "New Partner Hospital", phone: contact });
+    
+    // Update admin overview stats
+    if (document.getElementById("totalDoctors")) {
+        document.getElementById("totalDoctors").innerText = doctors.length;
+    }
+    
     alert("Doctor profile saved securely!");
     document.getElementById("doctorName").value = '';
     document.getElementById("doctorContact").value = '';
