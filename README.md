@@ -15,7 +15,7 @@ HERVOICE is a Progressive Web App (PWA) built to address the need for accessible
 Because this application is a Progressive Web App (PWA) with a functioning Service Worker, you can test it offline by following these steps using any browser.
 
 ### 1. Run the App Locally
-Use the VS Code **Live Server** extension (or any local server) to serve the app locally at `[http://127.0.0.1:5500](url)/` or `[http://localhost:5500/](url)`.
+Use the VS Code **Live Server** extension (or any local server) to serve the app locally at `http://127.0.0.1:5500/` or `http://localhost:5500/`.
 
 ### 2. Verify PWA Registration
 1. Once the site is loaded at `http://localhost:5500`, Press ( `Ctrl+Shift+I`) to open Developer Tools.
@@ -29,7 +29,7 @@ There are two ways to do this to test the app:
 * **Option B:** Turn off your computer's Wi-Fi to test if you can get see the apps content offline.
 
 
-### Application deployed link : [https://hervoice-xi.vercel.app/](url)
+### Application deployed link : https://hervoice-xi.vercel.app/
 
 
 ## 🛠️ Built With
