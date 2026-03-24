@@ -16,11 +16,15 @@ HERVOICE is a Progressive Web App (PWA) built to address the need for accessible
 git clone: https://github.com/k-bridget/HERVOICE.git
 
 **Navigate to the project folder**
+
 cd HERVOICE
+
 Open the folder in vscode.
+
 Right-click on the `index.html` file and click **"Open with Live Server"**.The application will automatically open in your default browser at `http://127.0.0.1:5500`
 
 **OR**
+
 python -m http.server 8000. Then, open your browser and navigate to `http://localhost:8000`.
 
 ### 2. Verify PWA Registration
