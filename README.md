@@ -17,9 +17,11 @@ git clone: https://github.com/k-bridget/HERVOICE.git
 
 **Navigate to the project folder**
 cd HERVOICE
+Open the folder in vscode.
+Right-click on the `index.html` file and click **"Open with Live Server"**.The application will automatically open in your default browser at `http://127.0.0.1:5500`
 
-### 1. Run the App Locally
-Use the VS Code **Live Server** extension to serve the app locally at `http://127.0.0.1:5500/` or `http://localhost:5500/`.
+**OR**
+python -m http.server 8000. Then, open your browser and navigate to `http://localhost:8000`.
 
 ### 2. Verify PWA Registration
 1. Once the site is loaded at `http://localhost:5500`, Press ( `Ctrl+Shift+I`) to open Developer Tools.
