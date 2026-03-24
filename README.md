@@ -11,7 +11,12 @@ HERVOICE is a Progressive Web App (PWA) built to address the need for accessible
 * **Admin Dashboard:** An integrated dashboard to update lessons and doctor data securely.
 * **Help & Support:** Directly connect to youth-friendly partner doctors through SMS or phone calls.
 
-# How to Test the Offline Mode
+# How to run the app
+**Clone the repository**
+git clone: 
+
+**Navigate to the project folder**
+cd HERVOICE
 
 ### 1. Run the App Locally
 Use the VS Code **Live Server** extension to serve the app locally at `http://127.0.0.1:5500/` or `http://localhost:5500/`.
