@@ -1,6 +1,7 @@
 {
   "name": "HERVOICE",
   "short_name": "HERVOICE",
+  "id": "/index.html",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f3f0ff",

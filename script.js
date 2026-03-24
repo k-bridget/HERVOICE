@@ -272,7 +272,7 @@ function addDoctor() {
     if (!name || !contact) return alert("Fill all fields");
     doctors.push({ name: name, hospital: "New Partner Hospital", phone: contact });
     
-    // Update admin overview stats
+    // Update admin overview
     if (document.getElementById("totalDoctors")) {
         document.getElementById("totalDoctors").innerText = doctors.length;
     }
