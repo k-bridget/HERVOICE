@@ -13,7 +13,7 @@ HERVOICE is a Progressive Web App (PWA) built to address the need for accessible
 
 # How to run the app
 **Clone the repository**
-git clone: 
+git clone: https://github.com/k-bridget/HERVOICE.git
 
 **Navigate to the project folder**
 cd HERVOICE
@@ -36,7 +36,7 @@ There are two ways to do this to test the app:
 ### Application deployed link : https://hervoice-xi.vercel.app/
 
 
-## 🛠️ Built With
+## Built With
 * HTML5
 * Vanilla CSS
 * Vanilla JavaScript
