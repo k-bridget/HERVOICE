@@ -43,11 +43,19 @@ if (!appLessons && typeof lessons !== 'undefined') {
 
 // INITIALIZATION
 
+function requestNotificationPermission() {
+    if ("Notification" in window && Notification.permission === "default") {
+        Notification.requestPermission();
+    }
+}
+
 function init() {
     ServerAPI.syncContent(); 
     generateLessons();
     generateVideos();
     updateLessonTitles();
+    requestNotificationPermission();
+    document.body.addEventListener('click', requestNotificationPermission, { once: true });
 }
 
 function generateLessons() {
@@ -261,6 +269,13 @@ function addLesson() {
     // Update admin stats
     document.getElementById("totalLessons").innerText = Object.keys(appLessons).length;
     
+    if ("Notification" in window && Notification.permission === "granted") {
+        new Notification("New Lesson Uploaded", {
+            body: `A new lesson "${title}" has been added!`,
+            icon: "images/icon-192.png"
+        });
+    }
+    
     alert("Lesson added successfully! It is now permanently saved locally and visible on the website.");
     document.getElementById("lessonName").value = '';
     document.getElementById("lessonText").value = '';
@@ -285,6 +300,14 @@ function addDoctor() {
 function sendNotification() {
     const text = document.getElementById("notificationText").value;
     if (!text) return alert("Enter notification message!");
+    
+    if ("Notification" in window && Notification.permission === "granted") {
+        new Notification("HERVOICE Announcement", {
+            body: text,
+            icon: "images/icon-192.png"
+        });
+    }
+
     alert("Notification securely pushed to all users!");
     document.getElementById("notificationText").value = '';
 }
