@@ -1,12 +1,12 @@
-#HERVOICE
+**HERVOICE**
 
 HERVOICE is an offline education and communication platform on sexual reproductive health for adolescents with disabilities in Rwanda.
 
-#Overview
+**Overview**
 
 HERVOICE is a Progressive Web App (PWA) built to address the need for accessible sexual reproductive health resources. It can be installed on both desktop and mobile devices and can be used completely offline in areas with low or no internet connectivity.
 
-#Features
+**Features**
 
 Offline Access: Content can be accessed without an active internet connection.
 
@@ -22,7 +22,7 @@ Help & Support: Directly connect to youth-friendly partner doctors through SMS o
 
 Clone the repository: git clone: https://github.com/k-bridget/HERVOICE.git
 
-Navigate to the project folder
+**Navigate to the project folder**
 
 cd HERVOICE
 
@@ -32,7 +32,7 @@ Right-click on the index.html file and click "Open with Live Server".The applica
 
 OR
 
-python -m http.server 8000. Then, open your browser and navigate to http://localhost:8000.
+**python -m http.server 8000**. Then, open your browser and navigate to http://localhost:8000.
 
 **Verify PWA Registration**
    
