@@ -1,7 +1,6 @@
 let currentLanguage = "en";
 let currentLesson = null;
-// OFFLINE STORAGE & CLOUD API (Simulated for PWA)
-
+// OFFLINE STORAGE & CLOUD API
 class SQLiteDB {
     static storeContent(key, data) {
         localStorage.setItem(key, JSON.stringify(data));
@@ -258,11 +257,11 @@ function addLesson() {
     // Create new unique ID
     const newId = "lesson_" + Date.now();
     
-    // Set for both languages temporarily (since admin form is simple)
+    // Set for both languages
     appLessonTitles[newId] = { en: title, rw: title };
     appLessons[newId] = { en: `<h2>${title}</h2><p>${content}</p>`, rw: `<h2>${title}</h2><p>${content}</p>` };
     
-    // Save to our SQLiteDB (LocalStorage wrapper)
+    // Save to our SQLiteDB 
     SQLiteDB.storeContent("appLessons", appLessons);
     SQLiteDB.storeContent("appLessonTitles", appLessonTitles);
     

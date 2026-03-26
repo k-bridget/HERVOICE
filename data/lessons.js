@@ -192,7 +192,7 @@ en: `
 <ul>
 <li>You have the right to education and information</li>
 <li>You have the right to access health services</li>
-<li>Speak up if someone tries to take away your choices</li>
+<li>Speak up if someone tries to go against your choices towards your body.</li>
 <li>Support others to know their rights too</li>
 </ul>
 `,
