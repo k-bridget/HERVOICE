@@ -46,6 +46,13 @@ if (!appLessons && typeof lessons !== 'undefined') {
     appLessons = {};
 }
 
+let appDoctors = SQLiteDB.retrieveContent("appDoctors");
+if (!appDoctors && typeof doctors !== 'undefined') {
+    appDoctors = [...doctors];
+} else if (!appDoctors) {
+    appDoctors = [];
+}
+
 // INITIALIZATION
 
 function requestNotificationPermission() {
@@ -91,8 +98,8 @@ function displayDoctors() {
     const container = document.getElementById("doctorList");
     if (!container) return;
     container.innerHTML = "";
-    if (typeof doctors !== 'undefined') {
-        doctors.forEach((doctor) => {
+    if (appDoctors) {
+        appDoctors.forEach((doctor) => {
             container.innerHTML += `
             <div class="doctorCard">
                 <h3>${doctor.name}</h3>
@@ -237,13 +244,6 @@ function openAdmin() {
         hideAll();
         document.getElementById("adminSection").style.display = "block";
         showAdminTab('overview');
-        
-        document.getElementById("totalLessons").innerText = Object.keys(appLessons).length;
-        if(typeof videos !== 'undefined') document.getElementById("totalVideos").innerText = videos.length;
-        if(typeof doctors !== 'undefined') document.getElementById("totalDoctors").innerText = doctors.length;
-        
-        let interactions = SQLiteDB.retrieveContent("total_interactions") || 0;
-        if(document.getElementById("totalInteractions")) document.getElementById("totalInteractions").innerText = interactions;
     } else if (pwd !== null) {
         alert("Incorrect password. Access denied.");
     }
@@ -258,6 +258,15 @@ function showAdminTab(tabId) {
     if (event && event.target && event.target.tagName === 'LI') {
         document.querySelectorAll('.sidebar ul li').forEach(li => li.classList.remove('active-tab'));
         event.target.classList.add('active-tab');
+    }
+    
+    if (tabId === 'overview') {
+        document.getElementById("totalLessons").innerText = Object.keys(appLessons).length;
+        if(typeof videos !== 'undefined') document.getElementById("totalVideos").innerText = videos.length;
+        if(appDoctors) document.getElementById("totalDoctors").innerText = appDoctors.length;
+        
+        let interactions = SQLiteDB.retrieveContent("total_interactions") || 0;
+        if(document.getElementById("totalInteractions")) document.getElementById("totalInteractions").innerText = interactions;
     }
 }
 
@@ -294,17 +303,21 @@ function addLesson() {
 
 function addDoctor() {
     const name = document.getElementById("doctorName").value;
+    const hospitalInfo = document.getElementById("doctorHospital") ? document.getElementById("doctorHospital").value : "";
     const contact = document.getElementById("doctorContact").value;
-    if (!name || !contact) return alert("Fill all fields");
-    doctors.push({ name: name, hospital: "New Partner Hospital", phone: contact });
+    if (!name || !contact) return alert("Fill required fields");
+    
+    appDoctors.push({ name: name, hospital: hospitalInfo || "New Partner Hospital", phone: contact });
+    SQLiteDB.storeContent("appDoctors", appDoctors);
     
     // Update admin overview
     if (document.getElementById("totalDoctors")) {
-        document.getElementById("totalDoctors").innerText = doctors.length;
+        document.getElementById("totalDoctors").innerText = appDoctors.length;
     }
     
     alert("Doctor profile saved securely!");
     document.getElementById("doctorName").value = '';
+    if (document.getElementById("doctorHospital")) document.getElementById("doctorHospital").value = '';
     document.getElementById("doctorContact").value = '';
 }
 
