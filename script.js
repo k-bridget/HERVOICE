@@ -18,6 +18,12 @@ class ServerAPI {
     }
 }
 
+function trackInteraction() {
+    let interactions = SQLiteDB.retrieveContent("total_interactions") || 0;
+    interactions++;
+    SQLiteDB.storeContent("total_interactions", interactions);
+}
+
 
 let appLessonTitles = SQLiteDB.retrieveContent("appLessonTitles");
 if (!appLessonTitles) {
@@ -107,6 +113,7 @@ function openLessons() {
 }
 
 function openLesson(id) {
+    trackInteraction();
     currentLesson = id;
     hideAll();
     document.getElementById("lessonDetail").style.display = "block";
@@ -122,12 +129,14 @@ function showLessons() {
 }
 
 function openVideos() {
+    trackInteraction();
     hideAll();
     document.getElementById("videosSection").style.display = "block";
     generateVideos();
 }
 
 function openHelp() {
+    trackInteraction();
     hideAll();
     document.getElementById("helpSection").style.display = "block";
     displayDoctors();
@@ -232,6 +241,9 @@ function openAdmin() {
         document.getElementById("totalLessons").innerText = Object.keys(appLessons).length;
         if(typeof videos !== 'undefined') document.getElementById("totalVideos").innerText = videos.length;
         if(typeof doctors !== 'undefined') document.getElementById("totalDoctors").innerText = doctors.length;
+        
+        let interactions = SQLiteDB.retrieveContent("total_interactions") || 0;
+        if(document.getElementById("totalInteractions")) document.getElementById("totalInteractions").innerText = interactions;
     } else if (pwd !== null) {
         alert("Incorrect password. Access denied.");
     }
