@@ -1,4 +1,4 @@
-**HERVOICE**
+# HERVOICE
 
 HERVOICE is an offline education and communication platform on sexual reproductive health for adolescents with disabilities in Rwanda.
 
@@ -18,7 +18,7 @@ Admin Dashboard: An integrated dashboard to update lessons and doctor data secur
 
 Help & Support: Directly connect to youth-friendly partner doctors through SMS or phone calls.
 
-#How to run the app
+# How to run the app
 
 Clone the repository: git clone: https://github.com/k-bridget/HERVOICE.git
 
